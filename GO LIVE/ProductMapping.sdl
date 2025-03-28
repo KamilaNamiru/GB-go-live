@@ -1,0 +1,13 @@
+#Mapping values
+#Wed Jan 29 14:39:10 CET 2025
+Active=IsActive
+Měna Nákupní=Purchase_currency__c
+Měna Prodejní=Sales_currency__c
+Name (EN) - Name on invoice=Name_EN__c
+Nákupní cena=Purchase_price__c
+Název=Name
+Prodejní cena=Sales_price__c
+Reg.č.=ProductCode
+SK=Sk__c
+Model=Model__c
+Poznámka=Description

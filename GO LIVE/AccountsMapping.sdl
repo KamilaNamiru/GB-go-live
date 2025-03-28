@@ -1,0 +1,22 @@
+#Mapping values
+#Wed Jan 29 11:08:01 CET 2025
+Blocked=Blocked__c
+Blocked at=Blocked_on_date__c
+City=BillingCity
+Created at last invoice=Last_jnvoice_date__c
+Currency=Currency__c
+E-mail=E_mail__c
+Helios ID=Helios_ID__c
+Name=Name
+PartnerWeb Org ID=PartnerWeb_ORG_ID__c
+Phone=Phone
+Verified=Verified__c
+State=State__c
+Street address=BillingStreet
+ZIP=BillingPostalCode
+City=BillingCity
+Country=BillingCountry
+Street address=ShippingStreet
+ZIP=ShippingPostalCode
+City=ShippingCity
+Country=ShippingCountry
