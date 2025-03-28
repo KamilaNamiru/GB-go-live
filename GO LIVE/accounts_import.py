@@ -18,11 +18,7 @@ sf = Salesforce(
 print("✅ Připojeno k Salesforce.")
 
 # 📥 Načtení Excelu
-df = pd.read_excel("accounts 28.3. .xlsx")
-
-# 🧹 Čištění hlavičky
-df.columns = df.iloc[0]
-df = df.drop(index=0).reset_index(drop=True)
+df = pd.read_excel("accounts 28.3..xlsx")
 
 # ✅ Přejmenování sloupců (custom field mapping + billing adresa)
 df = df.rename(columns={
@@ -152,8 +148,48 @@ print(f"\n✅ Úspěšně nahráno: {success_count}")
 print(f"🔁 Z toho aktualizováno: {update_count}")
 print(f"❌ Selhalo: {len(failures)}")
 
+# 🧩 Zpětné mapování chyb na původní řádky v DataFrame
 for i, fail in enumerate(failures[:10]):
     print(f"\n❌ Chyba č. {i+1}")
     print("  ID:", fail.get('id'))
     print("  Success:", fail.get('success'))
     print("  Errors:", fail.get('errors'))
+    # Vyhledej původní záznam z DataFrame podle Import_ID__c
+    failed_import_id = fail.get('record', {}).get('Import_ID__c')
+    if failed_import_id:
+        original_row = df[df['Import_ID__c'] == failed_import_id]
+        if not original_row.empty:
+            print("🧾 Původní řádek v DataFrame:")
+            print(original_row.to_string(index=False))
+
+# 📝 Uložení chyb do CSV pro analýzu
+print("\n📝 Ukládám chyby do souboru accounts_import_errors.csv...")
+error_rows = []
+
+for i, fail in enumerate(failures):
+    failed_index = i  # spárování podle indexu v původním DataFrame
+    error_info = fail.get("errors", [{}])[0]
+    original_record = df.iloc[failed_index].to_dict()
+    original_record["Chyba_kód"] = error_info.get("statusCode")
+    original_record["Chyba_zpráva"] = error_info.get("message")
+    error_rows.append(original_record)
+
+if error_rows:
+    pd.DataFrame(error_rows).to_csv("accounts_import_errors.csv", index=False)
+    print("✅ Uloženo do accounts_import_errors.csv")
+else:
+    print("✅ Žádné chyby k uložení")
+
+# 📤 Výstupní CSV s importovanými záznamy (pro mapování např. kontaktů)
+print("\n📦 Generuji výstupní CSV se Salesforce ID...")
+query_fields = ["Id", "Name", "Import_ID__c", "Helios_ID__c", "PartnerWeb_ORG_ID__c"]
+query = f"SELECT {', '.join(query_fields)} FROM Account WHERE Import_ID__c != NULL"
+results = sf.query_all(query)["records"]
+
+# Vyčistíme záznamy (odstraníme Salesforce atributy)
+export_data = [{k: r.get(k) for k in query_fields} for r in results]
+
+# Uložíme do CSV
+export_df = pd.DataFrame(export_data)
+export_df.to_csv("accounts_imported_out.csv", index=False)
+print("✅ Uloženo do accounts_imported_out.csv")

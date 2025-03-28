@@ -1,0 +1,15 @@
+#Mapping values
+#Tue Feb 04 21:13:29 CET 2025
+Address=MailingStreet
+City=MailingCity
+Country=MailingCountry
+E-mail=Email
+First name=FirstName
+Last name=LastName
+Phone=Phone
+Telegram User ID=Telegram_User_ID__c
+ZIP=MailingPostalCode
+Organization ID=Org_ID__c
+Created at=Creation_Date__c
+Source=Source__c
+State / Province=MailingState

@@ -1,0 +1,5 @@
+FirstName,LastName,Email,Org_ID__c,Phone,MailingCountry,MailingState,MailingStreet,MailingCity,MailingPostalCode,Telegram_User_ID__c,Creation_Date__c,Title,Source__c,AccountId,Chyba_kód,Chyba_zpráva
+Karel,Kyovsky,karel.kyovsky@generalbytes.com,1.0,+420603572525,Czechia,,Bubenska 1477/1,Prague 7,170 00,103963668.0,2022-01-01,,PartnerWeb,001KI00000GS0AWYA1,INVALID_EMAIL_ADDRESS,Email: invalid email address: Luvi@vgpartner
+Vaclav,Bilek,b00lean@b00lean.net,1.0,+420702204916,Czechia,,Tusarova 1285/3,Prague 7,170 00,,2022-01-01,,PartnerWeb,001KI00000GS0AWYA1,INVALID_EMAIL_ADDRESS,Email: invalid email address: cllewings@aol
+Martin,Pilař,martin.pilar@bitcomp.cz,4.0,+420603844393,Czechia,,Smědčice 71,Břasy,338 24,,2022-01-01,,PartnerWeb,001KI00000GRvWhYAL,INVALID_EMAIL_ADDRESS,Email: invalid email address: BG
+Domagoj,Petrovic,d.theman4@yahoo.com,5.0,+38598204499,Croatia,,Horvacanska 17,ZAGREB,10000,,2022-01-01,,PartnerWeb,001KI00000GS0AWYA1,STRING_TOO_LONG,"Mailing City: data value too large: San Miguel de Abona, Santa Cruz de Tenerife (max length=40)"
