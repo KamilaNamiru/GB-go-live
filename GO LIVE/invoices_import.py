@@ -90,8 +90,7 @@ df = merged.drop(columns=["Id", "Helios_ID__c", "PartnerWeb_ORG_ID__c"], errors=
 
 # 🧪 Prázdné Helios_invoice__c → True
 if "Helios_invoice__c" in df.columns:
-    df["Helios_invoice__c"] = df["Helios_invoice__c"].isna()
-
+    df["Helios_invoice__c"] = df["Helios_invoice__c"].astype(str).str.strip() == "1.0"
 # 🧾 Formátování částek a číselných polí
 numeric_fields = [
     "HM_Celkem_bez_z_lohy__c",
