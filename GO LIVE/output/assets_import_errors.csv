@@ -1,0 +1,2 @@
+Contract_Number__c,SerialNumber,Model__c,Country,Currency_Text__c,Product_Name__c,PartnerWeb_ORG_ID__c,Description,AccountId,Import_ID__c,Name,Chyba_kód,Chyba_zpráva
+CN204583,,Stand,Slovakia,,BATMTwo Stand,209.0,"ADAMM, s.r.o, Jan Krajca",001J900000CASWcIAP,ASSET00001,,REQUIRED_FIELD_MISSING,Required fields are missing: [Name]
