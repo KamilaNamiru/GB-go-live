@@ -8,7 +8,7 @@ import warnings
 
 warnings.filterwarnings("ignore", category=UserWarning)
 
-DEFAULT_ACCOUNT_ID = "001KI00000GS0AWYA1"
+DEFAULT_ACCOUNT_ID = "001J900000CASp3IAH"
 
 # 🔍 Načtení mappingu ze SDL
 def load_sdl_mapping(path):
